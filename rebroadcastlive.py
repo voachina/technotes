@@ -1,5 +1,8 @@
 #!/usr/bin/python
-
+#
+# This script allows you to rebroadcast a youtube video live.
+# You need to have youtube-dl and ffmpeg installed in order to use this script.
+#
 import subprocess
 import sys
 
