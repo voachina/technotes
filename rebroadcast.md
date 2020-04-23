@@ -21,13 +21,12 @@ QUAL="medium"
 YOUTUBE_URL="rtmp://x.rtmp.youtube.com/live2"
 
 SOURCE=$1
-KEY=$STREAMING_KEY
 
 ffmpeg \
     -i "$SOURCE" -deinterlace \
     -vcodec libx264 -pix_fmt yuv420p -preset $QUAL -r $FPS -g $(($FPS * 2)) -b:v $VBR \
     -acodec libmp3lame -ar 44100 -threads 6 -qscale 3 -b:a 712000 -bufsize 512k \
-    -f flv "$YOUTUBE_URL/$KEY"
+    -f flv "$YOUTUBE_URL/$STREAMING_KEY"
 ```
 
 - 设置环境变量 `export STREAMING_KEY=8hjb-wmrk-14w0-2pg7`，这里要替换你自己的key
